@@ -6,16 +6,20 @@ using namespace std;
 
 int main()
 {
-    int rollFrequency,a,b;
-    cout << "roll frequency?";
-    cin >> rollFrequency;
-    cout << "[a,b]";
-    cin >> a >> b;
-    srand((unsigned)time(NULL));
-    for (int i = 0; i < rollFrequency; i++)
+    //bool flag=1;
+    while (1)
     {
-        cout << (rand() % (b-a+1))+ a << endl;
+        int rollFrequency, a, b;
+        cout << "roll frequency?";
+        cin >> rollFrequency;
+        cout << "[a,b]:";
+        cin >> a >> b;
+        srand((unsigned)time(NULL));
+        for (int i = 0; i < rollFrequency; i++)
+        {
+            cout << (rand() % (b - a + 1)) + a << endl;
+        }
     }
-    
+    system("pause");
     return 0;
 }
