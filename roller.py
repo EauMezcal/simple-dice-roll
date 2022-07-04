@@ -16,19 +16,12 @@ class Roller(object):
         self.Roll_Button = tk.Button(self.root, command= self.roll, text = "roll!!")
         # self.display_info = tk.Listbox(self.root, width=50)
 
-        # self.v = tk.IntVar()
-        # self.v.set(0)
-        # tk.Radiobutton(self, text="1D 2", variable=self.v, value=4).pack(anchor = 'w')
-        # tk.Radiobutton(self, text="1D 10", fg='blue',font=('微软雅黑','12','bold'),variable=self.v, value=0).pack(anchor = 'w')
-        # tk.Radiobutton(self, text="1D 20", variable=self.v, value=2).pack(anchor = 'w')
-        # tk.Radiobutton(self, text="1D 100", variable=self.v, value=3).pack(anchor = 'w')
+        tk.Radiobutton(self, text="1D 100", variable=self.v, value=3).pack(anchor = 'w')
         self.site = [('1D 2',1),
-                    ('1D 10',2),
-                    ('1D 20',3),
+                    ('1D 6',2),
+                    ('1D 10',3),
                     ('1D 100',4)]
-        # IntVar() 用于处理整数类型的变量
         self.v = tk.IntVar()
-        # 重构后的写法，也非常简单易懂
         for name, num in self.site:
             radio_button = tk.Radiobutton(text = name, variable = self.v,value =num,command=self.roll_choose,indicatoron=False)
             radio_button.pack(anchor ='w')
@@ -39,7 +32,7 @@ class Roller(object):
 
 
     def roll_choose(self):
-        self.dict={1:'2',2:'10',3:'20',4:'100'}
+        self.dict={1:'2',2:'6',3:'10',4:'100'}
         self.D = int(self.dict.get(self.v.get()))
         roll = random.randint(1,self.D)
         the_roll_info = ["1D %d roll:" % int(self.dict.get(self.v.get())) + str(roll)]
